@@ -1,0 +1,14 @@
+tool: modal
+setups:
+  modal:
+    endpoint: https://YOUR-WORKSPACE--ep-glm-5-3-flash-server.us-west.modal.direct/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    credentials: [MODAL_PROXY_TOKEN_ID, MODAL_PROXY_TOKEN_SECRET]
+    auth_style: modal_proxy
+    max_tokens_field: max_completion_tokens
+    reasoning:
+      reasoning_effort: low
+    reasoning_docs_status: pending_smoke
+    pricing_usd_per_million_tokens:
+      input: 0.45
+      output: 1.50

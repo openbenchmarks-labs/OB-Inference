@@ -1,0 +1,14 @@
+tool: parasail
+setups:
+  parasail:
+    endpoint: https://api.parasail.io/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://docs.parasail.io/parasail-docs/api-reference/chat-completions
+    credentials: [PARASAIL_API_KEY]
+    max_tokens_field: max_completion_tokens
+    reasoning:
+      reasoning_effort: low
+    reasoning_docs_status: pending_smoke
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

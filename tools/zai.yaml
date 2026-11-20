@@ -1,0 +1,14 @@
+tool: zai
+setups:
+  Z.AI:
+    endpoint: https://api.z.ai/api/paas/v4/chat/completions
+    model_key: glm-5.3-flash
+    docs: https://docs.z.ai/api-reference/llm/chat-completion
+    credentials: [ZAI_API_KEY]
+    reasoning:
+      thinking:
+        type: enabled
+      reasoning_effort: low
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

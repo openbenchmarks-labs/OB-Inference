@@ -1,0 +1,13 @@
+tool: deepinfra
+setups:
+  deepinfra:
+    endpoint: https://api.deepinfra.com/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://docs.deepinfra.com/api-reference/chat-completions/openai-chat-completions
+    credentials: [DEEPINFRA_API_KEY]
+    reasoning:
+      reasoning_effort: low
+    include_usage: true
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

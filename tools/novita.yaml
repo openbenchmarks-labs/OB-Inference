@@ -1,0 +1,17 @@
+tool: novita
+setups:
+  novita:
+    endpoint: https://api.novita.ai/openai/v1/chat/completions
+    model_key: zai-org/glm-5.3-flash
+    docs: https://novita.ai/docs/api-reference/model-apis-llm-create-chat-completion
+    credentials: [NOVITA_API_KEY]
+    # Novita's docs do not list a low-effort switch for GLM 5.3 yet, so this sends the
+    # standard reasoning_effort field and waits for the smoke run to confirm it works.
+    # Its on/off thinking switches are not an effort level, so they are not used.
+    reasoning:
+      reasoning_effort: low
+    include_usage: true
+    reasoning_docs_status: pending_smoke
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

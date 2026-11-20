@@ -1,0 +1,12 @@
+tool: together
+setups:
+  together:
+    endpoint: https://api.together.ai/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://docs.together.ai/docs/inference/chat/overview
+    credentials: [TOGETHER_API_KEY]
+    reasoning:
+      reasoning_effort: low
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

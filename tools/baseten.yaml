@@ -1,0 +1,15 @@
+tool: baseten
+setups:
+  baseten:
+    endpoint: https://inference.baseten.co/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://docs.baseten.co/reference/inference-api/chat-completions
+    credentials: [BASETEN_API_KEY]
+    reasoning:
+      reasoning_effort: low
+    top_k_disabled_value: -1
+    include_usage: true
+    reasoning_docs_status: pending_smoke
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

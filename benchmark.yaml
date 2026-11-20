@@ -1,0 +1,7 @@
+name: OB-Inference
+order:
+  serves: Teams choosing a serverless LLM inference provider for latency, throughput, and reliability.
+  win: Better latency and throughput with full task completion under the same workload and budget.
+  budget_usd: 0
+  refresh_days: 30
+  not_measured_max: 0.1

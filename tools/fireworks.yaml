@@ -1,0 +1,13 @@
+tool: fireworks
+setups:
+  fireworks:
+    endpoint: https://api.fireworks.ai/inference/v1/chat/completions
+    model_key: accounts/fireworks/models/glm-5p3-flash
+    docs: https://docs.fireworks.ai/api-reference/post-chatcompletions
+    credentials: [FIREWORKS_API_KEY]
+    max_tokens_field: max_completion_tokens
+    reasoning:
+      reasoning_effort: low
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

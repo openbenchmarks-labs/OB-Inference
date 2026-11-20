@@ -1,0 +1,14 @@
+tool: nebius
+setups:
+  nebius:
+    endpoint: https://api.tokenfactory.nebius.com/v1/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://docs.tokenfactory.nebius.com/api-reference/inference/create-chat-completion
+    credentials: [NEBIUS_API_KEY]
+    max_tokens_field: max_completion_tokens
+    reasoning:
+      reasoning_effort: low
+    include_usage: true
+    pricing_usd_per_million_tokens:
+      input: 0.15
+      output: 0.50

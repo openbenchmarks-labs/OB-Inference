@@ -1,0 +1,12 @@
+tool: telnyx
+setups:
+  telnyx:
+    endpoint: https://api.telnyx.com/v2/ai/openai/chat/completions
+    model_key: zai-org/GLM-5.3-Flash
+    docs: https://developers.telnyx.com/api-reference/openai-chat/create-a-chat-completion-openai-compatible
+    credentials: [TELNYX_API_KEY]
+    reasoning:
+      reasoning_effort: low
+    pricing_usd_per_million_tokens:
+      input: 0.135
+      output: 0.450
