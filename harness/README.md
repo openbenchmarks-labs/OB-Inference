@@ -26,8 +26,8 @@ The questions are cycled one task family at a time. Each question goes to all pr
 
 ```sh
 openbench-inference init      # check the dataset and create a run without sending requests
-openbench-inference smoke     # 30 requests (one question per family per provider), at most 2 attempts and $5
-openbench-inference run --full --approve-full --approval-id YOUR-AUDIT-ID   # the full 6,000-request run
+openbench-inference smoke     # 33 requests (one question per family per provider), at most 2 attempts and $5
+openbench-inference run --full --approve-full --approval-id YOUR-AUDIT-ID   # the full 6,600-request run
 openbench-inference watch --run-dir runs/micro-single-task/run-YYYYMMDD-HHMMSS
 ```
 

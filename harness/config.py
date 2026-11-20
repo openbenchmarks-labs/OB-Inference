@@ -17,7 +17,7 @@ from .providers import TOOL_SETUPS
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SPEC = REPO_ROOT / "harness/spec.yaml"
-PROVIDER_COUNT = 10
+PROVIDER_COUNT = 11
 TASK_FAMILIES = (
     "meeting-notes-lookup",
     "ticket-triage",
@@ -101,7 +101,7 @@ def _validate(raw: dict[str, Any]) -> None:
         raise ValueError(f"spec missing sections: {', '.join(sorted(missing))}")
     providers = raw["providers"]["vendors"]
     if len(providers) != PROVIDER_COUNT:
-        raise ValueError("benchmark requires exactly ten provider arms")
+        raise ValueError("benchmark requires exactly eleven provider arms")
     families = raw["dataset"]["task_families"]
     if tuple(families) != TASK_FAMILIES:
         raise ValueError("task-family order differs from the declared round-robin order")
@@ -121,10 +121,10 @@ def _validate(raw: dict[str, Any]) -> None:
     plan = raw["execution_plan"]
     required_plan = {
         "requests_per_provider": 600,
-        "total_provider_requests": 6000,
+        "total_provider_requests": 6600,
         "question_rounds": 600,
         "per_provider_concurrency": 1,
-        "maximum_global_concurrency": 10,
+        "maximum_global_concurrency": 11,
         "simultaneous_provider_calls_per_question": True,
         "wait_for_all_providers_before_next_question": True,
         "identical_schedule_across_providers": True,
@@ -137,9 +137,9 @@ def _validate(raw: dict[str, Any]) -> None:
         raise ValueError("task-family round-robin order mismatch")
     smoke = raw["smoke_run"]
     resolved = len(providers) * len(families) * int(smoke.get("cases_per_task_family", 0))
-    if smoke.get("maximum_attempts") != 2 or resolved != 30:
-        raise ValueError("smoke must contain two permitted attempts of 30 requests each")
-    if smoke.get("budget") != {"maximum_requests_per_attempt": 30, "maximum_cost_usd_across_attempts": 5}:
+    if smoke.get("maximum_attempts") != 2 or resolved != 33:
+        raise ValueError("smoke must contain two permitted attempts of 33 requests each")
+    if smoke.get("budget") != {"maximum_requests_per_attempt": 33, "maximum_cost_usd_across_attempts": 5}:
         raise ValueError("smoke ceilings differ from the workflow contract")
     if raw["operations"].get("full_run_requires_human_approval") is not True:
         raise ValueError("full execution must remain approval-guarded")

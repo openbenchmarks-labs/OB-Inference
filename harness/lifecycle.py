@@ -246,7 +246,7 @@ def prepare_run(
         "benchmark": config.benchmark_slug,
         "full_run_authorized": False,
         "database_writes_authorized": False,
-        "expected_units": {"smoke_requests_per_attempt": 30, "smoke_rounds_per_attempt": 3, "full_run_requests": 6000, "full_run_rounds": 600},
+        "expected_units": {"smoke_requests_per_attempt": 33, "smoke_rounds_per_attempt": 3, "full_run_requests": 6600, "full_run_rounds": 600},
         "ceilings": {"requests_per_smoke_attempt": config.smoke_request_limit, "cost_usd_across_attempts": config.smoke_cost_limit, "request_timeout_seconds": config.timeout_seconds, "request_attempts": 1},
     }
     atomic_json(root / "plan.json", plan)

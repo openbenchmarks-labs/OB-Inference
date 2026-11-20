@@ -169,7 +169,7 @@ def test_wire_payloads_preserve_common_streaming_contract():
         name
         for name, row in compatibility.items()
         if row["reasoning_docs_status"] == "pending_smoke"
-    } == {"baseten", "modal", "parasail", "novita"}
+    } == {"baseten", "modal", "parasail", "novita", "pareto"}
     assert compatibility["Z.AI"]["reasoning_docs_status"] == "documented"
 
 

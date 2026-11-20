@@ -27,7 +27,7 @@ def snapshot(run_dir: Path | str) -> dict[str, Any]:
         by_id = {row["request_id"]: row for row in rows if isinstance(row, dict) and row.get("request_id")}
         by_id.update({row["request_id"]: row for row in atomic_rows if isinstance(row, dict) and row.get("request_id")})
         rows = list(by_id.values())
-    expected = 30 if attempt is not None else plan.get("expected_units", {}).get("full_run_requests", 6000)
+    expected = 33 if attempt is not None else plan.get("expected_units", {}).get("full_run_requests", 6600)
     external_calls = sum(1 for event in read_jsonl(root / "events.jsonl") if event.get("kind") == "external_call_started")
     failures = [row for row in rows if row.get("terminal_outcome") != "completed"]
     elapsed = None
@@ -57,7 +57,7 @@ def snapshot(run_dir: Path | str) -> dict[str, Any]:
             "success": state.get("success"),
             "duration_seconds": state.get("duration_seconds"),
             "completed": len(read_jsonl(root / "raw" / f"results-attempt-{state.get('attempt')}.jsonl")),
-            "expected": 30,
+            "expected": 33,
         }
         for state in states
     ]
