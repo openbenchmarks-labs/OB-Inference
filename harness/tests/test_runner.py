@@ -52,10 +52,10 @@ def test_dataset_and_selection_are_frozen_and_deterministic(config, dataset):
 def test_full_schedule_is_600_paired_rounds_with_rotation(config, dataset):
     rounds = build_full_schedule(config, dataset)
     assert len(rounds) == 600
-    assert len(flatten(rounds)) == 6000
+    assert len(flatten(rounds)) == 6600
     assert [row.task_family for row in rounds[:6]] == [*config.task_families, *config.task_families]
-    assert all(len(row.units) == 10 for row in rounds)
-    assert len({unit.request_id for unit in flatten(rounds)}) == 6000
+    assert all(len(row.units) == 11 for row in rounds)
+    assert len({unit.request_id for unit in flatten(rounds)}) == 6600
     assert [unit.provider for unit in rounds[1].units] == [*config.providers[1:], config.providers[0]]
     assert all({unit.item_id for unit in row.units} == {row.item_id} for row in rounds)
 
@@ -143,10 +143,10 @@ def test_shared_release_barrier_and_resume_skip(config, dataset, tmp_path):
     }, attempt=1)
     runner = BenchmarkRunner(tmp_path, config=config, dataset=dataset, transport=FakeTransport())
     records = asyncio.run(runner.execute_schedule(rounds[:1], attempt=1))
-    assert len(records) == 10
+    assert len(records) == 11
     assert first_unit.request_id not in calls
-    assert len(calls) == 9
-    assert peak == 9
+    assert len(calls) == 10
+    assert peak == 10
     assert all(
         "launch_skew_ms" not in row
         for row in records
@@ -223,7 +223,7 @@ def test_all_requests_prepared_before_release_and_events_are_arrival_atomic(conf
 
         async def execute_prepared(self, *, prepared: tuple, event_sink):
             unit, _ = prepared
-            assert len(prepared_ids) == 10
+            assert len(prepared_ids) == 11
             event = {
                 "event_index": 0,
                 "classification": "answer",
@@ -245,7 +245,7 @@ def test_all_requests_prepared_before_release_and_events_are_arrival_atomic(conf
     prepared_ids = prepared
     runner = BenchmarkRunner(tmp_path, config=config, dataset=dataset, transport=PreparedTransport())
     asyncio.run(runner.execute_schedule((question,), attempt=1))
-    assert len(prepared_ids) == len(executed) == 10
+    assert len(prepared_ids) == len(executed) == 11
     materialized = runner.store.materialize_attempt(
         attempt=1, ordered_request_ids=[unit.request_id for unit in question.units]
     )

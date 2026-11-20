@@ -13,7 +13,7 @@ def test_cli_lists_the_registered_workflow(capsys):
 def test_bundled_workflow_spec_is_packaged_and_loadable():
     config = load_config()
     assert config.benchmark_slug == "inference-micro-single-task"
-    assert len(config.providers) == 10
+    assert len(config.providers) == 11
 
 
 def test_spec_with_provider_rows_is_refused(tmp_path):

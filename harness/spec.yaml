@@ -96,10 +96,10 @@ inference:
 
 execution_plan:
   requests_per_provider: 600
-  total_provider_requests: 6000
+  total_provider_requests: 6600
   question_rounds: 600
   per_provider_concurrency: 1
-  maximum_global_concurrency: 10
+  maximum_global_concurrency: 11
   simultaneous_provider_calls_per_question: true
   wait_for_all_providers_before_next_question: true
   terminal_outcomes_release_question_barrier:
@@ -265,10 +265,10 @@ smoke_run:
   maximum_attempts: 2
   cases_per_task_family: 1
   requests_per_provider_per_attempt: 3
-  maximum_provider_requests_per_attempt: 30
+  maximum_provider_requests_per_attempt: 33
   per_provider_concurrency: 1
   budget:
-    maximum_requests_per_attempt: 30
+    maximum_requests_per_attempt: 33
     maximum_cost_usd_across_attempts: 5
   acceptance_criteria:
     runner_errors: 0

@@ -598,7 +598,7 @@ def _acceptance(
             return evaluation["schema_valid"] is True
         return evaluation.get("classification") not in {"malformed_json", "schema_invalid", "missing_required_field", "invalid_result", "runner_error"}
 
-    schemas = len(records) == 30 and all(schema_valid(row) for row in records)
+    schemas = len(records) == 33 and all(schema_valid(row) for row in records)
     compatibility = all(
         provider_compatibility.get(provider, {}).get("compatible") is True
         for provider in config.providers
@@ -624,7 +624,7 @@ def _acceptance(
         "every_provider_returns_schema_valid_result_per_task_family": schemas,
         "every_provider_uses_intended_model_and_compatible_configuration": compatibility,
         "every_observed_reasoning_stream_is_timed_separately_from_answer_content": recomputation["channel_separation_valid"],
-        "raw_result_count_matches_submitted_request_count": len(records) == 30,
+        "raw_result_count_matches_submitted_request_count": len(records) == 33,
         "stream_events_reconstruct_final_answers": recomputation["stream_reconstructs"],
         "evaluations_recompute_from_raw_results": recomputation["evaluations_match"],
         "timing_metrics_recompute_from_raw_stream_events": recomputation["timings_match"],
@@ -931,7 +931,7 @@ async def run_smoke(
     store.initialize()
     store.write_immutable_artifact(
         f"artifacts/smoke-plan-attempt-{attempt}.json",
-        {"kind": "smoke", "attempt": attempt, "expected_rounds": 3, "expected_requests": 30, "rounds": [row.to_dict() for row in rounds]},
+        {"kind": "smoke", "attempt": attempt, "expected_rounds": 3, "expected_requests": 33, "rounds": [row.to_dict() for row in rounds]},
     )
     budget = SmokeBudget(store.artifact_dir / "smoke-budget.json", config.smoke_request_limit, config.smoke_cost_limit)
     store.begin_attempt(attempt)

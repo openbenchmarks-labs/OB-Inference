@@ -34,7 +34,7 @@ def build_parser() -> argparse.ArgumentParser:
     init.add_argument("--spec", type=Path)
     init.add_argument("--run-id")
 
-    smoke = commands.add_parser("smoke", help="run one 30-request smoke attempt")
+    smoke = commands.add_parser("smoke", help="run one 33-request smoke attempt")
     _workflow_argument(smoke)
     smoke.add_argument("--spec", type=Path)
     smoke.add_argument("--run-dir", type=Path)

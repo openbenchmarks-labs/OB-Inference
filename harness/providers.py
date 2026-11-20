@@ -111,6 +111,7 @@ TOOLS = (
     "parasail",
     "novita",
     "deepinfra",
+    "pareto",
 )
 
 

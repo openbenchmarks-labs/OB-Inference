@@ -1,0 +1,15 @@
+tool: pareto
+# Regular price, read 2026-11-20 from https://docs.paretoinference.com/pricing (a promo currently lists $0.06 / $0.20).
+setups:
+  pareto:
+    endpoint: https://api.paretoinference.com/v1/chat/completions
+    model_key: z-ai/glm-5.3-flash
+    docs: https://docs.paretoinference.com/api-reference
+    credentials: [PARETO_API_KEY]
+    reasoning:
+      reasoning_effort: low
+    include_usage: true
+    reasoning_docs_status: pending_smoke
+    pricing_usd_per_million_tokens:
+      input: 0.09
+      output: 0.30

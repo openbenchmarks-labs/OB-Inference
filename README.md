@@ -1,6 +1,6 @@
 # OB-Inference
 
-Open, independent LLM inference provider benchmark: serverless endpoints measured on end-to-end latency, p99 tail latency, streaming tokens per second and exact task accuracy. Every provider serves the same model (GLM 5.3 Flash) on the same paired micro-tasks, with the same request settings, at the same moment. Providers measured: Baseten, DeepInfra, Fireworks AI, Modal, Nebius, Novita AI, Parasail, Telnyx, Together AI and Z.AI.
+Open, independent LLM inference provider benchmark: serverless endpoints measured on end-to-end latency, p99 tail latency, streaming tokens per second and exact task accuracy. Every provider serves the same model (GLM 5.3 Flash) on the same paired micro-tasks, with the same request settings, at the same moment. Providers measured: Baseten, DeepInfra, Fireworks AI, Modal, Nebius, Novita AI, Parasail, Pareto, Telnyx, Together AI and Z.AI.
 
 **Live leaderboard:** [openbenchmarks.com/inference](https://openbenchmarks.com/inference) · **Public dataset:** [`openbenchmarks/OB-Inference-Microtasks`](https://huggingface.co/datasets/openbenchmarks/OB-Inference-Microtasks)
 
@@ -18,9 +18,9 @@ Every provider receives paired streaming requests with fixed parameters (`harnes
 
 ## Tools evaluated
 
-10 serverless inference providers configured in [`tools/`](tools/README.md):
+11 serverless inference providers configured in [`tools/`](tools/README.md):
 
-`baseten`, `deepinfra`, `fireworks`, `modal`, `nebius`, `novita`, `parasail`, `telnyx`, `together`, `zai`
+`baseten`, `deepinfra`, `fireworks`, `modal`, `nebius`, `novita`, `parasail`, `pareto`, `telnyx`, `together`, `zai`
 
 ## Dataset
 
@@ -35,7 +35,7 @@ See [`data/README.md`](data/README.md) for the directory layout, manifest format
 
 - [`data/`](data/README.md): System prompt templates (`prompt_templates/`), dataset layout, and schema documentation.
 - [`harness/`](harness/README.md): CLI runner (`openbench-inference`), run spec (`harness/spec.yaml`), and provider adapters.
-- [`tools/`](tools/README.md): One `<tool>.yaml` config per inference provider (10 tools).
+- [`tools/`](tools/README.md): One `<tool>.yaml` config per inference provider (11 tools).
 - [`judge/`](judge/README.md): Deterministic answer evaluator, latency/throughput/failure metrics, and report generator.
 - [`benchmark.yaml`](benchmark.yaml): Benchmark contract, scope, and refresh cadence.
 - [`AGENTS.md`](AGENTS.md): Entry guide for coding agents.
